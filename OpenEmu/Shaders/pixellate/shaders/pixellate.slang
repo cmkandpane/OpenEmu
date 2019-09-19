@@ -23,9 +23,13 @@ layout(std140, set = 0, binding = 0) uniform UBO
    vec4 OriginalSize;
    vec4 SourceSize;
    float INTERPOLATE_IN_LINEAR_GAMMA;
+   float GAMMA_AMOUNT;
 } global;
 
 #pragma parameter INTERPOLATE_IN_LINEAR_GAMMA "Linear Gamma Weight" 1.0 0.0 1.0 1.0
+#pragma parameter GAMMA_AMOUNT "Gamma Amount" 2.2 0.1 3.2 0.1
+
+#define GAMMA_ADJUST global.GAMMA_AMOUNT
 
 #pragma stage vertex
 layout(location = 0) in vec4 Position;
@@ -61,10 +65,10 @@ void main()
    vec3 topRightColor;
 
    if (global.INTERPOLATE_IN_LINEAR_GAMMA > 0.5){
-   topLeftColor     = pow(texture(Source, (floor(vec2(left, top)     / texelSize) + 0.5) * texelSize).rgb, vec3(2.2));
-   bottomRightColor = pow(texture(Source, (floor(vec2(right, bottom) / texelSize) + 0.5) * texelSize).rgb, vec3(2.2));
-   bottomLeftColor  = pow(texture(Source, (floor(vec2(left, bottom)  / texelSize) + 0.5) * texelSize).rgb, vec3(2.2));
-   topRightColor    = pow(texture(Source, (floor(vec2(right, top)    / texelSize) + 0.5) * texelSize).rgb, vec3(2.2));
+   topLeftColor     = pow(texture(Source, (floor(vec2(left, top)     / texelSize) + 0.5) * texelSize).rgb, vec3(GAMMA_ADJUST));
+   bottomRightColor = pow(texture(Source, (floor(vec2(right, bottom) / texelSize) + 0.5) * texelSize).rgb, vec3(GAMMA_ADJUST));
+   bottomLeftColor  = pow(texture(Source, (floor(vec2(left, bottom)  / texelSize) + 0.5) * texelSize).rgb, vec3(GAMMA_ADJUST));
+   topRightColor    = pow(texture(Source, (floor(vec2(right, top)    / texelSize) + 0.5) * texelSize).rgb, vec3(GAMMA_ADJUST));
    }else{
    topLeftColor     = texture(Source, (floor(vec2(left, top)     / texelSize) + 0.5) * texelSize).rgb;
    bottomRightColor = texture(Source, (floor(vec2(right, bottom) / texelSize) + 0.5) * texelSize).rgb;

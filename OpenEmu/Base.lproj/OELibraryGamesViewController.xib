@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14868" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14868"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -29,22 +29,22 @@
             <rect key="frame" x="0.0" y="0.0" width="830" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <customView id="gah-MP-JLP">
+                <customView fixedFrame="YES" id="gah-MP-JLP">
                     <rect key="frame" x="0.0" y="0.0" width="186" height="600"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                     <subviews>
-                        <visualEffectView wantsLayer="YES" appearanceType="vibrantDark" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" id="dW0-Ij-N5B">
+                        <visualEffectView wantsLayer="YES" appearanceType="vibrantDark" fixedFrame="YES" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="dW0-Ij-N5B">
                             <rect key="frame" x="0.0" y="0.0" width="186" height="600"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <customView id="jVR-Tc-HAY" customClass="OEBackgroundColorView">
+                                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jVR-Tc-HAY">
                                     <rect key="frame" x="0.0" y="0.0" width="186" height="600"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <scrollView focusRingType="none" appearanceType="aqua" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="JYU-Tk-u7m">
+                                        <scrollView focusRingType="none" appearanceType="aqua" fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYU-Tk-u7m">
                                             <rect key="frame" x="0.0" y="103" width="186" height="497"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <clipView key="contentView" id="MQJ-cq-QCT">
+                                            <clipView key="contentView" ambiguous="YES" id="MQJ-cq-QCT">
                                                 <rect key="frame" x="0.0" y="0.0" width="186" height="497"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
@@ -65,9 +65,6 @@
                                                                     <font key="font" metaFont="system"/>
                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                    <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="string" keyPath="themeKey" value="sidebar"/>
-                                                                    </userDefinedRuntimeAttributes>
                                                                 </textFieldCell>
                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             </tableColumn>
@@ -76,78 +73,63 @@
                                                 </subviews>
                                             </clipView>
                                             <edgeInsets key="contentInsets" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
-                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="AhO-Jy-5F7">
+                                            <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="AhO-Jy-5F7">
                                                 <rect key="frame" x="-100" y="-100" width="171" height="15"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
-                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="rph-sy-VNi">
+                                            <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="rph-sy-VNi">
                                                 <rect key="frame" x="171" y="17" width="15" height="494"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                         </scrollView>
-                                        <customView id="GEj-BL-eLK" userLabel="Game Scanner Background Color View">
+                                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GEj-BL-eLK" userLabel="Game Scanner Background Color View">
                                             <rect key="frame" x="0.0" y="0.0" width="186" height="75"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <customView id="eIq-bW-kuZ" customClass="OEHorizontalLine">
-                                                    <rect key="frame" x="0.0" y="73" width="185" height="2"/>
+                                                <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="eIq-bW-kuZ">
+                                                    <rect key="frame" x="0.0" y="73" width="185" height="5"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="themeKey" value="game_scanner_line"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </customView>
-                                                <progressIndicator wantsLayer="YES" maxValue="100" style="bar" id="ecg-qx-RWc" customClass="OEProgressIndicator">
+                                                </box>
+                                                <progressIndicator wantsLayer="YES" fixedFrame="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="ecg-qx-RWc">
                                                     <rect key="frame" x="16" y="19" width="132" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="themeKey" value="game_scanner_progress"/>
-                                                    </userDefinedRuntimeAttributes>
                                                 </progressIndicator>
-                                                <textField verticalHuggingPriority="750" id="YLv-AD-2L2" customClass="OELabel">
+                                                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YLv-AD-2L2">
                                                     <rect key="frame" x="17" y="43" width="98" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Game Scanner" id="R5g-ov-B26" customClass="OELabelCell">
+                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Game Scanner" id="R5g-ov-B26">
                                                         <font key="font" metaFont="systemBold"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="themeKey" value="game_scanner_headline"/>
-                                                    </userDefinedRuntimeAttributes>
                                                 </textField>
-                                                <textField verticalHuggingPriority="750" id="KwU-gZ-ksn" customClass="OELabel">
+                                                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KwU-gZ-ksn">
                                                     <rect key="frame" x="17" y="7" width="151" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                    <textFieldCell key="cell" lineBreakMode="truncatingHead" sendsActionOnEndEditing="YES" title="Scanner Paused" id="gJT-pJ-BJg" customClass="OELabelCell">
+                                                    <textFieldCell key="cell" lineBreakMode="truncatingHead" sendsActionOnEndEditing="YES" title="Scanner Paused" id="gJT-pJ-BJg">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="themeKey" value="game_scanner_text"/>
-                                                    </userDefinedRuntimeAttributes>
                                                 </textField>
-                                                <button id="Nvs-ey-EH6" customClass="OEButton">
+                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nvs-ey-EH6">
                                                     <rect key="frame" x="151" y="20" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" inset="2" id="J1i-Ms-dUn" customClass="OEButtonCell">
+                                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" inset="2" id="J1i-Ms-dUn">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system" size="10"/>
                                                     </buttonCell>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="themeKey" value="game_scanner_toggle_pause_cancel"/>
-                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="buttonAction:" target="juh-5x-f5U" id="o8W-6K-ddm"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                         </customView>
-                                        <customView id="aoh-d8-ctm" userLabel="Bottom Bar">
+                                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aoh-d8-ctm" userLabel="Bottom Bar">
                                             <rect key="frame" x="0.0" y="75" width="186" height="28"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <popUpButton misplaced="YES" id="GFy-U9-H7A">
+                                                <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GFy-U9-H7A">
                                                     <rect key="frame" x="0.0" y="7" width="29" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <popUpButtonCell key="cell" type="smallSquare" bezelStyle="smallSquare" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyUpOrDown" inset="2" pullsDown="YES" arrowPosition="noArrow" selectedItem="1U8-Yu-nH3" id="npV-Do-MPo">
@@ -184,7 +166,7 @@
                         </visualEffectView>
                     </subviews>
                 </customView>
-                <customView id="0nE-Pi-8Ai">
+                <customView fixedFrame="YES" id="0nE-Pi-8Ai">
                     <rect key="frame" x="187" y="0.0" width="643" height="600"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </customView>
@@ -209,6 +191,6 @@
         </viewController>
     </objects>
     <resources>
-        <image name="sidebar_add" width="7.5" height="7.5"/>
+        <image name="sidebar_add" width="15" height="15"/>
     </resources>
 </document>

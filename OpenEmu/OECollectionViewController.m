@@ -409,18 +409,15 @@ static void *OEUserDefaultsDisplayGameTitleKVOContext = &OEUserDefaultsDisplayGa
     OELibraryToolbar *toolbar = self.libraryController.toolbar;
     switch (tag) {
         case OEGridViewTag:
-            toolbar.gridViewButton.state = NSControlStateValueOn;
-            toolbar.listViewButton.state = NSControlStateValueOff;
+            toolbar.viewSelector.selectedSegment = 0;
             toolbar.gridSizeSlider.enabled = YES;
             break;
         case OEListViewTag:
-            toolbar.gridViewButton.state = NSControlStateValueOff;
-            toolbar.listViewButton.state = NSControlStateValueOn;
+            toolbar.viewSelector.selectedSegment = 1;
             toolbar.gridSizeSlider.enabled = NO;
             break;
         case OEBlankSlateTag:
-            toolbar.gridSizeSlider.enabled = NO;
-            toolbar.gridViewButton.enabled = NO;
+            toolbar.viewSelector.enabled = NO;
             toolbar.listViewButton.enabled = NO;
             break;
     }
@@ -434,8 +431,7 @@ static void *OEUserDefaultsDisplayGameTitleKVOContext = &OEUserDefaultsDisplayGa
 
         if (self.isSelected) {
             OELibraryToolbar *toolbar = self.libraryController.toolbar;
-            toolbar.gridViewButton.enabled = YES;
-            toolbar.listViewButton.enabled = YES;
+            toolbar.viewSelector.enabled = YES;
             toolbar.gridSizeSlider.enabled = self.selectedViewTag == OEGridViewTag;
             toolbar.searchField.enabled = YES;
             toolbar.searchField.menu = nil;
@@ -447,8 +443,7 @@ static void *OEUserDefaultsDisplayGameTitleKVOContext = &OEUserDefaultsDisplayGa
 
         if (self.isSelected) {
             OELibraryToolbar *toolbar = self.libraryController.toolbar;
-            toolbar.gridViewButton.enabled = NO;
-            toolbar.listViewButton.enabled = NO;
+            toolbar.viewSelector.enabled = NO;
             toolbar.gridSizeSlider.enabled = NO;
             toolbar.searchField.enabled = NO;
             toolbar.searchField.menu = nil;
@@ -465,10 +460,9 @@ static void *OEUserDefaultsDisplayGameTitleKVOContext = &OEUserDefaultsDisplayGa
 
 - (OECollectionViewControllerViewTag)OE_currentViewTagByToolbarState
 {
-    if (self.libraryController.toolbar.gridViewButton.state == NSControlStateValueOn)
+    if (self.libraryController.toolbar.viewSelector.selectedSegment == 0)
         return OEGridViewTag;
-    else
-        return OEListViewTag;
+    return OEListViewTag;
 }
 
 #pragma mark - Toolbar Actions

@@ -67,6 +67,12 @@ typedef NS_ENUM(NSUInteger, OELibraryCategory) {
     OELibraryCategoryCount
 };
 
+typedef NS_ENUM(NSUInteger, OELibraryViewMode) {
+    OELibraryViewModeGrid,
+    OELibraryViewModeList,
+    OELibraryViewModeCount
+};
+
 #pragma mark - Imported variables
 extern NSString * const OESidebarSelectionDidChangeNotificationName;
 
@@ -153,16 +159,23 @@ extern NSString * const OESidebarSelectionDidChangeNotificationName;
         [[self currentSubviewController] performSelector:@selector(addCollectionAction:) withObject:sender];
 }
 
-- (IBAction)switchToGridView:(id)sender
+- (IBAction)switchViewMode:(id)sender
 {
-    if([[self currentSubviewController] respondsToSelector:@selector(switchToGridView:)])
-       [[self currentSubviewController] performSelector:@selector(switchToGridView:) withObject:sender];
-}
-
-- (IBAction)switchToListView:(id)sender
-{
-    if([[self currentSubviewController] respondsToSelector:@selector(switchToListView:)])
-        [[self currentSubviewController] performSelector:@selector(switchToListView:) withObject:sender];
+    OELibraryViewMode viewMode = [self.toolbar.viewSelector selectedSegment];
+    switch (viewMode) {
+        case OELibraryViewModeGrid:
+            if([self.currentSubviewController respondsToSelector:@selector(switchToGridView:)])
+                [self.currentSubviewController performSelector:@selector(switchToGridView:) withObject:sender];
+            break;
+            
+        case OELibraryViewModeList:
+            if([self.currentSubviewController respondsToSelector:@selector(switchToListView:)])
+                [self.currentSubviewController performSelector:@selector(switchToListView:) withObject:sender];
+            break;
+            
+        default:
+            break;
+    }
 }
 
 - (IBAction)search:(id)sender
@@ -320,15 +333,18 @@ extern NSString * const OESidebarSelectionDidChangeNotificationName;
         return [[[self toolbar] searchField] isEnabled];
     }
 
-    OEButton *button = nil;
-    if(action == @selector(switchToGridView:))
-        button = [[self toolbar] gridViewButton];
-    else if(action == @selector(switchToListView:))
-        button = [[self toolbar] listViewButton];
-    else return YES;
+    OELibraryViewMode mode = self.toolbar.viewSelector.selectedSegment;
+    NSControlStateValue state;
+    if(action == @selector(switchToGridView:)) {
+        state = mode == OELibraryViewModeGrid ? NSControlStateValueOn : NSControlStateValueOff;
+    } else if(action == @selector(switchToListView:)) {
+        state = mode == OELibraryViewModeList ? NSControlStateValueOn : NSControlStateValueOff;
+    } else {
+        return YES;
+    }
     
-    [menuItem setState:[button state]];
-    return [button isEnabled];
+    [menuItem setState:state];
+    return self.toolbar.viewSelector.isEnabled;
 }
 
 #pragma mark - Import

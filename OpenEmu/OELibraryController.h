@@ -46,8 +46,7 @@ extern NSString * const OELibraryLastCategoryKey;
 - (void)startSelectedGameWithSaveState:(id)stateItem;
 
 #pragma mark - Toolbar Actions
-- (IBAction)switchToGridView:(id)sender;
-- (IBAction)switchToListView:(id)sender;
+- (IBAction)switchViewMode:(id)sender;
 - (IBAction)search:(id)sender;
 - (IBAction)changeGridSize:(id)sender;
 - (IBAction)addCollectionAction:(id)sender;
