@@ -106,7 +106,7 @@ NSString *const OEScreenshotPropertiesKey = @"screenshotProperties";
     if((self = [super init]))
     {
         _controlsWindow = [[OEGameControlsBar alloc] initWithGameViewController:self];
-        [_controlsWindow setReleasedWhenClosed:YES];
+        [_controlsWindow setReleasedWhenClosed:NO];
 
         NSView *view = [[NSView alloc] initWithFrame:(NSRect){ .size = { 1.0, 1.0 }}];
         [self setView:view];
